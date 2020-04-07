@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="${title}"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link href="/css/forms.css" th:href="@{/css/forms.css}" rel="stylesheet" />
+    </head>
+
+    <body class="bg-light">
+        <header th:insert="fragments/header :: header"></header>
+
+        <div class="container">
+            <div class="py-5 text-center">
+                <h2>Заполните формы для расчёта</h2>
+                <p class="lead"><small>(* справка находится на вкладке "О программе")</small></p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 order-md-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Результат</span>
+                        <span class="badge badge-secondary badge-pill">~РВС-1000</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Стенка</h6>
+                                <small class="text-muted">Brief description</small>
+                            </div>
+                            <span class="text-muted">$12</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Днище</h6>
+                                <small class="text-muted">Brief description</small>
+                            </div>
+                            <span class="text-muted">$8</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Крыша</h6>
+                                <small class="text-muted">Brief description</small>
+                            </div>
+                            <span class="text-muted">$5</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span><strong>ОБЩИЙ ВЕС</strong></span>
+                            <strong>$20</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">Стоимость</h6>
+                            </div>
+                            <span class="text-success">-$5</span>
+                        </li>
+                    </ul>
+
+                    <form class="card p-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="тыс.руб/т">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary"><small>Посчитать стоимость</small></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-8 order-md-1">
+                    <form class="needs-validation" novalidate="" action="/forms" method="post">
+
+                        <h5 class="mb-3">Диаметр*</h5>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <select name="diameter" class="custom-select d-block w-100" id="diameter" required="">
+                                    <option value="">Выберите...</option>
+                                    <option name="3800">3800</option>
+                                    <option name="4730">4730</option>
+                                    <option name="6630">6630</option>
+                                    <option name="7580">7580</option>
+                                    <option name="8530">8530</option>
+                                    <option name="10430">10430</option>
+                                    <option name="15180">15180</option>
+                                    <option name="18980">18980</option>
+                                    <option name="20920">20920</option>
+                                    <option name="22800">22800</option>
+                                    <option name="28500">28500</option>
+                                    <option name="34200">34200</option>
+                                    <option name="39900">39900</option>
+                                    <option name="45600">45600</option>
+                                    <option name="60700">60700</option>
+                                </select>
+                            </div>
+                            <div class="invalid-feedback">
+                                Пожалуйста, выберите диаметр
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+
+                        <h5 class="mb-3">Стенка*</h5>
+                        <div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">12 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring12" class="form-control" id="ring12" placeholder="мм" required="">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">11 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring11" class="form-control" id="ring11" placeholder="мм" required="">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">10 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring10" class="form-control" id="ring10" placeholder="мм" required="">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;9 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring9" class="form-control" id="ring9" placeholder="мм" required="">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;8 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring8" class="form-control" id="ring8" placeholder="мм" required="">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;7 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring7" class="form-control" id="ring7" placeholder="мм" required="">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;6 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring6" class="form-control" id="ring6" placeholder="мм" required="">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;5 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring5" class="form-control" id="ring5" placeholder="мм" required="">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;4 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring4" class="form-control" id="ring4" placeholder="мм" required="">
+                                    <div class="invalid-feedback" style="width: 100%;">
+                                        4-й пояс не может отсутствовать.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;3 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring3" class="form-control" id="ring3" placeholder="мм" required="">
+                                    <div class="invalid-feedback" style="width: 100%;">
+                                        3-й пояс не может отсутствовать.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;2 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring2" class="form-control" id="ring2" placeholder="мм" required="">
+                                    <div class="invalid-feedback" style="width: 100%;">
+                                        2-й пояс не может отсутствовать.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&nbsp;&nbsp;1 пояс</span>
+                                    </div>
+                                    <input type="text" name="ring1" class="form-control" id="ring1" placeholder="мм" required="">
+                                    <div class="invalid-feedback" style="width: 100%;">
+                                        1-й пояс не может отсутствовать.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+
+                        <h5 class="mb-3">Днище</h5>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label for="bottomCenter">Центр</label>
+                                <input type="text" name="bottomCenter" class="form-control" id="bottomCenter" placeholder="мм" required="">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="bottomRim">Окрайка</label>
+                                <input type="text" name="bottomRim" class="form-control" id="bottomRim" placeholder="мм" required="">
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+
+                        <h5 class="mb-3">Кровля</h5>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <input type="text" name="roof" class="form-control" id="roof" placeholder="мм" required="">
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+
+                        <label for="otherElements">Дополнительные элементы</label>
+                        <div id="otherElements">
+                            <div class="row">
+                                <div class="col-md-10 mb-2">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Подогреватель&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        </div>
+                                        <input type="text" name="heater" class="form-control" id="heater" placeholder="т" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 mb-2">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Крепление теплоизоляции&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        </div>
+                                        <input type="text" name="insulation" class="form-control" id="insulation" placeholder="т" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-7 mb-2">
+                                    <input type="text" name="otherWeight1name" class="form-control" id="otherWeight1name" placeholder="название элемента" required="">
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <input type="text" name="otherWeight1" class="form-control" id="otherWeight1" placeholder="т" required="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 mb-2">
+                                    <input type="text" name="otherWeight2name" class="form-control" id="otherWeight2name" placeholder="название элемента" required="">
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <input type="text" name="otherWeight2" class="form-control" id="otherWeight2" placeholder="т" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+
+                        <div class="row">
+                            <div class="col-md-3 mb-3" id="steelTypeSection">
+                                <h5 class="mb-3">Марка стали</h5>
+                                <div class="custom-control custom-radio">
+                                    <input id="st3" name="st3" type="radio" class="custom-control-input" checked="" required="">
+                                    <label class="custom-control-label" for="st3">Ст3</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="09g2s" name="s09g2s" type="radio" class="custom-control-input" required="">
+                                    <label class="custom-control-label" for="09g2s">09Г2С</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="12h18n10t" name="s12h18n10t" type="radio" class="custom-control-input" required="">
+                                    <label class="custom-control-label" for="12h18n10t">12Х18Н10Т</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Рассчитать итоговую массу</button>
+                        <hr class="mb-2">
+                        <a class="btn btn-outline-primary col-md-6 offset-md-3" href="/createlog">Составить отчёт</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div th:insert="fragments/footer :: footer"></div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+        <script src="form-validation.js"></script>
+    </body>
+</html>
